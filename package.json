@@ -1,0 +1,23 @@
+{
+  "name": "web-animation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf es dist",
+    "dev": "pnpm clean && rollup -c -w --environment NODE_ENV:development",
+    "build": "pnpm clean && rollup -c --environment NODE_ENV:production && rimraf *.tsbuildinfo"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.3",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.29.0",
+    "rollup-plugin-dts": "^6.0.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "typescript": "^5.2.2"
+  }
+}
