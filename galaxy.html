@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        overflow: hidden;
+        background: black;
+      }
+      ball {
+        position: absolute;
+        @background: orangered;
+        left: 50vw;
+        top: 50vh;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 40px magenta;
+      }
+    </style>
+    <script type="module">
+      import { animate } from './dist/index.js'
+      var n = 100
+      var frames = []
+
+      frames.push({ transform: 'none' })
+      var frameCount = 3 + Math.random() * 8
+      var translate = 0
+      var rotate = 0
+      var rotateY = 0
+      var scale = 1
+      var z = 0
+      for (var i = 0; i < frameCount; i++) {
+        z += (0.5 - Math.random()) * 100
+        scale += (0.5 - Math.random()) * 2
+        rotate += (0.5 - Math.random()) * 1080
+        rotateY += (0.5 - Math.random()) * 1080
+        translate += (0.5 - Math.random()) * 500
+        frames.push({
+          transform:
+            'rotate(' +
+            rotate +
+            'deg) rotateY(' +
+            rotateY +
+            'deg) translateX(' +
+            translate +
+            'px) scale(' +
+            scale +
+            ') translateZ(' +
+            z +
+            'px)'
+        })
+      }
+      frames.push({ transform: 'none' })
+
+      var duration = frames.length * 5000
+      // create ball elements
+      const fragment = document.createDocumentFragment()
+      const balls = Array.from({ length: n }).map((_, i) => {
+        const ball = document.createElement('ball')
+        ball.style.background = 'rgb(' + Math.round((i / n) * 256) + ', 128, 200)'
+        ball.classList.add('ball')
+        fragment.appendChild(ball)
+        return ball
+      })
+
+      // add animation
+      animate(balls, frames, (_, i) => {
+        return {
+          duration,
+          iterations: Infinity,
+          delay: (i / n) * -duration
+        }
+      })
+      document.body.appendChild(fragment)
+    </script>
+  </body>
+</html>
