@@ -23,19 +23,19 @@ const baseEsmConfig = { ...baseConfig, format: 'esm' }
 const baseUmdConfig = { ...baseConfig, format: 'umd', name: 'WebAnimation' /** export name */ }
 
 module.exports = defineConfig([
-  // {
-  //   input: './src/index.ts',
-  //   output: [
-  //     {
-  //       ...baseEsmConfig,
-  //       file: './dist/index.esm.js'
-  //     },
-  //     { ...baseEsmConfig, file: './dist/index.esm.min.js', plugins: [terser()] },
-  //     { ...baseUmdConfig, file: './dist/index.umd.js' },
-  //     { ...baseUmdConfig, file: './dist/index.umd.js', plugins: [terser()] }
-  //   ],
-  //   plugins: sharedPlugins
-  // },
+  {
+    input: './src/index.ts',
+    output: [
+      {
+        ...baseEsmConfig,
+        file: './dist/index.esm.js'
+      },
+      { ...baseEsmConfig, file: './dist/index.esm.min.js', plugins: [terser()] },
+      { ...baseUmdConfig, file: './dist/index.umd.js' },
+      { ...baseUmdConfig, file: './dist/index.umd.js', plugins: [terser()] }
+    ],
+    plugins: sharedPlugins
+  },
   {
     input: './src/index.ts',
     external: /animations|easings/,
