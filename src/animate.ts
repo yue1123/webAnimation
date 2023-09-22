@@ -50,6 +50,12 @@ export function animate<E extends Element = Element>(
   el: Element | Element[] | NodeListOf<E> | string,
   keyframes: Keyframes,
   options: AnimateOptions | AnimateOptionsResolver
-): Animation | Animation[] {
+): Animation | Animation[] | void {
+  if (!Element.prototype.animate) {
+    return console.warn(
+      'Your browser does not seem to support the Web Animations API. Please add polyfill: web/polyfill.js and try again!'
+    )
+  }
+
   return animateRunner.apply(this, [el, keyframes, options])
 }
