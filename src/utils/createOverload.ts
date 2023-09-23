@@ -13,14 +13,14 @@ export function createOverload<T = any, R = any>() {
       return implementFn.apply(null, args)
     }
 
-    throw new Error('[ createOverload ] - no matched implement function, please check arguments')
+    throw new Error('[ overload ] - no matched implement function, please check arguments')
   }
 
   function addOverload(...args: AnyItemTypeWithLastLimitArray<string | string[], ImplementFn<T, R>>) {
     const implementFn = args.pop()
 
     if (!(implementFn instanceof Function)) {
-      throw new Error('[ createOverload ] - implement function must be function type')
+      throw new Error('[ overload ] - implement function must be function type')
     }
     for (const key of combineNestedArray(args as string[][])) {
       implementFnMap.set(key, implementFn)
