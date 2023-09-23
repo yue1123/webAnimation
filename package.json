@@ -2,31 +2,76 @@
   "name": "web-animation",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "unpkg": "dist/index.umd.js",
+  "jsdelivr": "dist/index.umd.js",
+  "exports": {
+    "./easings": "./dist/easings",
+    "./animations": "./dist/animations/index.js",
+    "./types": "./dist/index.d.ts",
+    "./*": "./*",
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
+    "prepare": "husky install",
     "clean": "rimraf es dist",
     "dev": "pnpm clean && rollup -c -w --environment NODE_ENV:development",
-    "build": "pnpm clean && rollup -c --environment NODE_ENV:production && rimraf *.tsbuildinfo"
+    "build": "pnpm clean && rollup -c --environment NODE_ENV:production && rimraf *.tsbuildinfo",
+    "format": "prettier -w src/**/*",
+    "release-major": "standard-version --release-as major --tag-prefix v && pnpm build",
+    "release-minor": "standard-version --release-as minor --tag-prefix v && pnpm build",
+    "release-patch": "standard-version --release-as patch --tag-prefix v && pnpm build",
+    "lint": "eslint --ext .js,.ts,.tsx",
+    "lint:fix": "eslint --ext .js,.ts,.tsx --fix"
   },
   "keywords": [],
-  "author": "",
+  "author": "yue1123",
   "license": "MIT",
+  "packageManager": "pnpm@8.0.0",
   "engines": {
-    "node": "16"
+    "pnpm": ">=8.0.0",
+    "node": ">=16.0.0"
   },
+  "sideEffects": false,
   "devDependencies": {
+    "@commitlint/cli": "^16.3.0",
+    "@commitlint/config-conventional": "^16.2.4",
+    "@rollup/plugin-eslint": "^9.0.4",
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-typescript": "^11.1.3",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "conventional-changelog-cli": "2.2.2",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^13.3.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
-    "rollup": "^3.29.0",
+    "rollup": "^3.29.2",
     "rollup-plugin-concat": "^1.0.3",
-    "rollup-plugin-dts": "^6.0.1",
+    "rollup-plugin-dts": "^6.0.2",
+    "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.35.0",
-    "typescript": "^5.2.2"
-  },
-  "dependencies": {
+    "standard-version": "^9.5.0",
+    "typescript": "^5.2.2",
     "web-animations-js": "^2.3.2"
+  },
+  "lint-staged": {
+    "*.{js,ts?(x)}": [
+      "eslint"
+    ],
+    "**/*.md": [
+      "eslint"
+    ]
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { defineConfig } = require('rollup')
 const typescript = require('@rollup/plugin-typescript')
 const resolve = require('rollup-plugin-node-resolve')
@@ -5,8 +6,9 @@ const dts = require('rollup-plugin-dts').default
 const { terser } = require('rollup-plugin-terser')
 const replace = require('@rollup/plugin-replace')
 const pkg = require('./package.json')
-const concat = require('rollup-plugin-concat')
+const eslint = require('@rollup/plugin-eslint').default
 
+const root = process.cwd()
 const sharedPlugins = [
   replace({
     values: {
@@ -15,10 +17,13 @@ const sharedPlugins = [
     },
     preventAssignment: true
   }),
+  eslint({
+    cwd: root
+  }),
   typescript(),
   resolve()
 ]
-const baseConfig = { exports: 'named' }
+const baseConfig = { exports: 'named', indent: false }
 const baseEsmConfig = { ...baseConfig, format: 'esm' }
 const baseUmdConfig = { ...baseConfig, format: 'umd', name: 'WebAnimation' /** export name */ }
 
