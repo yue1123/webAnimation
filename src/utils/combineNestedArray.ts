@@ -1,3 +1,9 @@
+/**
+ * combine nested array to string array
+ * @example ['a', 'b', ['c1', 'c2']] ====> ['abc1', 'abc2']
+ * @param arr
+ * @returns
+ */
 export function combineNestedArray(arr: string[][]): string[] {
   const result: string[] = ['']
 
