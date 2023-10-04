@@ -15,7 +15,7 @@ export function animate(el: Element, keyframes: Keyframes, options: AnimateOptio
  * @param optionsResolver A function return animation config
  */
 export function animate<E extends Element = Element>(
-  els: HTMLElement[] | NodeListOf<E>,
+  el: E[] | NodeListOf<E>,
   keyframes: Keyframes,
   optionsResolver: AnimateOptionsResolver
 ): Animation[]
@@ -26,7 +26,7 @@ export function animate<E extends Element = Element>(
  * @param options animation options
  */
 export function animate<E extends Element = Element>(
-  els: HTMLElement[] | NodeListOf<E>,
+  els: E[] | NodeListOf<E>,
   keyframes: Keyframes,
   options: AnimateOptions
 ): Animation[]
@@ -44,18 +44,23 @@ export function animate(selector: string, keyframes: Keyframes, optionsResolver:
  * @param options
  */
 export function animate(selector: string, keyframes: Keyframes, options: AnimateOptions): Animation[]
-
+/**
+ * animate css preset
+ * @param selector
+ * @param keyframes
+ * @param options
+ */
 export function animate<E extends Element = Element>(
-  this: any,
-  el: Element | Element[] | NodeListOf<E> | string,
-  keyframes: Keyframes,
-  options: AnimateOptions | AnimateOptionsResolver
-): Animation | Animation[] | void {
+  els: E | E[] | NodeListOf<E> | string,
+  animation: { keyframes: Keyframes; options: AnimateOptions }
+): Animation | Animation[] | void
+
+export function animate(this: any, ...args: any[]): Animation | Animation[] | void {
   if (!Element.prototype.animate) {
     return console.warn(
-      'Your browser does not seem to support the Web Animations API. Please add polyfill: web/polyfill.js and try again!'
+      'Your browser does not seem to support the Web Animations API. Please add polyfill: `import web-animate.js/polyfill` to your project and try again!'
     )
   }
 
-  return animateRunner.apply(this, [el, keyframes, options])
+  return animateRunner.apply(this, args)
 }
