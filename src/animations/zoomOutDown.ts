@@ -17,7 +17,7 @@ export const zoomOutDown = /*#__PURE__*/ (() => {
         transformOrigin,
         offset: 1
       }
-    ],
-    options: { duration: 1000, fill: 'both' }
+    ] as Keyframe[],
+    options: { duration: 1000, fill: 'both' } as EffectTiming
   }
 })()

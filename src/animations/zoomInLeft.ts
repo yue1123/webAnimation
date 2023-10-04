@@ -13,6 +13,6 @@ export const zoomInLeft = {
       offset: 0.6
     },
     { transform: 'none', opacity: 1, offset: 1 }
-  ],
-  options: { duration: 1000, fill: 'both' }
+  ] as Keyframe[],
+  options: { duration: 1000, fill: 'both' } as EffectTiming
 }

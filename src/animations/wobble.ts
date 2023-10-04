@@ -22,6 +22,6 @@ export const wobble = {
       offset: 0.75
     },
     { transform: 'translate3d(0, 0, 0)', offset: 1 }
-  ],
-  options: { duration: 1000, fill: 'both' }
+  ] as Keyframe[],
+  options: { duration: 1000, fill: 'both' } as EffectTiming
 }

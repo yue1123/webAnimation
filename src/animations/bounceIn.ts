@@ -8,7 +8,7 @@ export const bounceIn = /*#__PURE__*/ (() => {
       { transform: 'scale3d(1.03, 1.03, 1.03)', opacity: 1, easing, offset: 0.6 },
       { transform: 'scale3d(0.97, 0.97, 0.97)', easing, offset: 0.8 },
       { transform: 'scale3d(1, 1, 1)', opacity: 1, easing, offset: 1 }
-    ],
-    options: { duration: 750, fill: 'both' }
+    ] as Keyframe[],
+    options: { duration: 750, fill: 'both' } as EffectTiming
   }
 })()

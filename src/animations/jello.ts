@@ -42,7 +42,7 @@ export const jello = /*#__PURE__*/ (() => {
         offset: 0.888
       },
       { ...frame, offset: 1 }
-    ],
-    options: { duration: 1000, fill: 'both' }
+    ] as Keyframe[],
+    options: { duration: 1000, fill: 'both' } as EffectTiming
   }
 })()

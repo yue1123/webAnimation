@@ -17,6 +17,6 @@ export const flipOutY = {
       backfaceVisibility: 'visible !important',
       offset: 1
     }
-  ],
-  options: { duration: 750, fill: 'both' }
+  ] as Keyframe[],
+  options: { duration: 750, fill: 'both' } as EffectTiming
 }

@@ -27,6 +27,6 @@ export const flipInX = {
       backfaceVisibility: 'visible !important',
       offset: 1
     }
-  ],
-  options: { duration: 1000, fill: 'both' }
+  ] as Keyframe[],
+  options: { duration: 1000, fill: 'both' } as EffectTiming
 }

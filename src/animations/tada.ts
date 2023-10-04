@@ -16,7 +16,7 @@ export const tada = /*#__PURE__*/ (() => {
       { ...frame4, offset: 0.8 },
       { ...frame3, offset: 0.9 },
       { ...frame1, offset: 1 }
-    ],
-    options: { duration: 1000, fill: 'both' }
+    ] as Keyframe[],
+    options: { duration: 1000, fill: 'both' } as EffectTiming
   }
 })()

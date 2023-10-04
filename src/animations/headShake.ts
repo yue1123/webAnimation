@@ -7,6 +7,6 @@ export const headShake = {
     { transform: 'translateX(2px) rotateY(3deg)', offset: 0.435 },
     { transform: 'translateX(0)', offset: 0.5 },
     { transform: 'none', offset: 1 }
-  ],
-  options: { duration: 1000, fill: 'both', easing: 'ease-in-out' }
+  ] as Keyframe[],
+  options: { duration: 1000, fill: 'both', easing: 'ease-in-out' } as EffectTiming
 }

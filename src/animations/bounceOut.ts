@@ -8,7 +8,7 @@ export const bounceOut = /*#__PURE__*/ (() => {
       { ...frame, offset: 0.5 },
       { ...frame, offset: 0.55 },
       { transform: 'scale3d(0.3, 0.3, 0.3)', opacity: 0, offset: 1 }
-    ],
-    options: { duration: 750, fill: 'both' }
+    ] as Keyframe[],
+    options: { duration: 750, fill: 'both' } as EffectTiming
   }
 })()

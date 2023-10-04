@@ -37,7 +37,7 @@ export const bounce = /*#__PURE__*/ (() => {
         offset: 0.9
       },
       { ...frame1, offset: 1 }
-    ],
-    options: { duration: 1000, fill: 'both' }
+    ] as Keyframe[],
+    options: { duration: 1000, fill: 'both' } as EffectTiming
   }
 })()

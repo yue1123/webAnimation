@@ -5,7 +5,7 @@ export const zoomIn = /*#__PURE__*/ (() => {
       { transform: 'scale3d(0.3, 0.3, 0.3)', opacity: 0, offset: 0 },
       { ...frame, offset: 0.5 },
       { ...frame, offset: 1 }
-    ],
-    options: { duration: 1000, fill: 'both' }
+    ] as Keyframe[],
+    options: { duration: 1000, fill: 'both' } as EffectTiming
   }
 })()

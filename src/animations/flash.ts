@@ -8,7 +8,7 @@ export const flash = /*#__PURE__*/ (() => {
       { ...frame1, offset: 0.5 },
       { ...frame2, offset: 0.75 },
       { ...frame1, offset: 1 }
-    ],
-    options: { duration: 1000, fill: 'both' }
+    ] as Keyframe[],
+    options: { duration: 1000, fill: 'both' } as EffectTiming
   }
 })()

@@ -8,7 +8,7 @@ export const bounceOutDown = /*#__PURE__*/ (() => {
       { ...frame, offset: 0.4 },
       { ...frame, offset: 0.45 },
       { transform: 'translate3d(0, 2000px, 0) scaleY(3)', opacity: 0, offset: 1 }
-    ],
-    options: { duration: 1000, fill: 'both' }
+    ] as Keyframe[],
+    options: { duration: 1000, fill: 'both' } as EffectTiming
   }
 })()

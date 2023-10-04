@@ -31,7 +31,7 @@ export const hinge = /*#__PURE__*/ (() => {
         transformOrigin,
         offset: 1
       }
-    ],
-    options: { duration: 2000, fill: 'both' }
+    ] as Keyframe[],
+    options: { duration: 2000, fill: 'both' } as EffectTiming
   }
 })()

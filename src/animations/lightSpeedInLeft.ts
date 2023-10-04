@@ -19,6 +19,6 @@ export const lightSpeedInLeft = {
       opacity: 1,
       offset: 1
     }
-  ],
-  options: { duration: 1000, fill: 'both', easing: 'ease-out' }
+  ] as Keyframe[],
+  options: { duration: 1000, fill: 'both', easing: 'ease-out' } as EffectTiming
 }

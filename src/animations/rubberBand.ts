@@ -7,6 +7,6 @@ export const rubberBand = {
     { transform: 'scale3d(0.95, 1.05, 1)', offset: 0.65 },
     { transform: 'scale3d(1.05, 0.95, 1)', offset: 0.75 },
     { transform: 'scale3d(1, 1, 1)', offset: 1 }
-  ],
-  options: { duration: 1000, fill: 'both' }
+  ] as Keyframe[],
+  options: { duration: 1000, fill: 'both' } as EffectTiming
 }

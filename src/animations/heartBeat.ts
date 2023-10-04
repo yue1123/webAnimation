@@ -10,7 +10,7 @@ export const heartBeat = /*#__PURE__*/ (() => {
       { ...frame2, offset: 0.42 },
       { ...frame1, offset: 0.7 },
       { transform: 'none', offset: 1 }
-    ],
-    options: { duration: 1300, fill: 'both', easing: 'ease-in-out' }
+    ] as Keyframe[],
+    options: { duration: 1300, fill: 'both', easing: 'ease-in-out' } as EffectTiming
   }
 })()
