@@ -7,6 +7,7 @@ const { terser } = require('rollup-plugin-terser')
 const replace = require('@rollup/plugin-replace')
 const pkg = require('./package.json')
 const eslint = require('@rollup/plugin-eslint').default
+const copy = require('rollup-plugin-copy')
 
 const root = process.cwd()
 const sharedPlugins = [
@@ -25,7 +26,7 @@ const sharedPlugins = [
 ]
 const baseConfig = { exports: 'named', indent: false }
 const baseEsmConfig = { ...baseConfig, format: 'esm' }
-const baseUmdConfig = { ...baseConfig, format: 'umd', name: 'WebAnimation' /** export name */ }
+const baseUmdConfig = { ...baseConfig, format: 'umd', name: 'webAnimate' /** export name */ }
 
 module.exports = defineConfig([
   {
@@ -75,7 +76,13 @@ module.exports = defineConfig([
     output: {
       file: './dist/polyfill.min.js'
     },
-    plugins: [typescript(), resolve()]
+    plugins: [
+      typescript(),
+      resolve(),
+      copy({
+        targets: [{ src: 'src/polyfill.d.ts', dest: 'dist' }]
+      })
+    ]
   },
   {
     input: './src/index.ts',
@@ -83,6 +90,22 @@ module.exports = defineConfig([
     output: {
       format: 'esm',
       file: 'dist/index.d.ts'
+    }
+  },
+  {
+    input: './src/animations/index.ts',
+    plugins: [dts()],
+    output: {
+      format: 'esm',
+      file: 'dist/animations.d.ts'
+    }
+  },
+  {
+    input: './src/easings/index.ts',
+    plugins: [dts()],
+    output: {
+      format: 'esm',
+      file: 'dist/easings.d.ts'
     }
   }
 ])

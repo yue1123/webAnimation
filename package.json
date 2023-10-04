@@ -1,22 +1,29 @@
 {
-  "name": "web-animation",
+  "name": "web-animate.js",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simplify web animations with Web Animation API. Create stunning effects effortlessly",
   "main": "dist/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "unpkg": "dist/index.umd.js",
   "jsdelivr": "dist/index.umd.js",
   "exports": {
-    "./easings": "./dist/easings",
-    "./animations": "./dist/animations/index.js",
-    "./types": "./dist/index.d.ts",
-    "./*": "./*",
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./package.json": "./package.json"
+    "./easings": {
+      "import": "./dist/easings",
+      "types": "./dist/easings.d.ts"
+    },
+    "./animations": {
+      "import": "./dist/animations/index.js",
+      "types": "./dist/animations.d.ts"
+    },
+    "./polyfill": {
+      "import": "./dist/polyfill.min.js",
+      "types": "./dist/polyfill.d.ts"
+    }
   },
   "scripts": {
     "prepare": "husky install",
@@ -61,7 +68,6 @@
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.35.0",
     "standard-version": "^9.5.0",
     "typescript": "^5.2.2",
     "web-animations-js": "^2.3.2"
