@@ -58,7 +58,7 @@ export function animate<E extends Element = Element>(
 export function animate(this: any, ...args: any[]): Animation | Animation[] | void {
   if (!Element.prototype.animate) {
     return console.warn(
-      'Your browser does not seem to support the Web Animations API. Please add polyfill: `import web-animate.js/polyfill` to your project and try again!'
+      'Your browser lacks Web Animations API support. Add the polyfill with import web-animate.js/polyfill and try again.'
     )
   }
 

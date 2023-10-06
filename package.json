@@ -1,5 +1,5 @@
 {
-  "name": "web-animate.js",
+  "name": "start-animate",
   "version": "1.0.0",
   "description": "Simplify web animations with Web Animation API. Create stunning effects effortlessly",
   "main": "dist/index.js",
@@ -64,6 +64,7 @@
     "rimraf": "^5.0.1",
     "rollup": "^3.29.2",
     "rollup-plugin-concat": "^1.0.3",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.0.2",
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",

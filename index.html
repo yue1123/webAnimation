@@ -29,6 +29,10 @@
       <h1 class="title-el">4</h1>
       <h1 class="title-el">5</h1>
     </div>
-    <script type="module" src="./test.js"></script>
+    <script type="module" src="./dist/index.umd.js"></script>
+    <script type="module">
+      const a = start.animate('.title-el', start.flipInY)
+      console.log(a);
+    </script>
   </body>
 </html>

@@ -24,9 +24,9 @@ const sharedPlugins = [
   typescript(),
   resolve()
 ]
-const baseConfig = { exports: 'named', indent: false }
+const baseConfig = { exports: 'named', indent: '' }
 const baseEsmConfig = { ...baseConfig, format: 'esm' }
-const baseUmdConfig = { ...baseConfig, format: 'umd', name: 'webAnimate' /** export name */ }
+const baseUmdConfig = { ...baseConfig, format: 'umd', name: 'start' /** export name */ }
 
 module.exports = defineConfig([
   {
@@ -37,7 +37,6 @@ module.exports = defineConfig([
         file: './dist/index.esm.js'
       },
       { ...baseEsmConfig, file: './dist/index.esm.min.js', plugins: [terser()] },
-      { ...baseUmdConfig, file: './dist/index.umd.js' },
       { ...baseUmdConfig, file: './dist/index.umd.js', plugins: [terser()] }
     ],
     plugins: sharedPlugins
